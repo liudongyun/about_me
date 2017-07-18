@@ -1,22 +1,38 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/pages/index'
-import navlist from '@/components/navlist'
+import baseinfo from '@/pages/baseinfo'
+import load from '@/pages/load'
+import interesting from '@/pages/interesting'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/index',
       name: 'index',
       component: index
     },
     {
-    	path:'/navlist',
-    	name:'navlist',
+    	path:'/baseinfo',
+    	name:'baseinfo',
     	components:{
-    		default:navlist
+    		default:baseinfo
+    	}
+    },
+    {
+    	path:'/load',
+    	name:'load',
+    	components:{
+    		default:load
+    	}
+    },
+    {
+    	path:'/interesting',
+    	name:'interesting',
+    	components:{
+    		default:interesting
     	}
     }
   ]
