@@ -1,12 +1,17 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <navlist></navlist>
   </div>
 </template>
 
 <script>
+import navlist from './components/navlist'
 export default {
-  name: 'app'
+  name: 'app',
+  components:{
+    navlist
+  }
 }
 </script>
 

@@ -7,60 +7,62 @@
 		</div>
 		<div class="index_base_info">
 			<ul>
-				<li>
-					<span>姓名：</span>
-					<span>刘冬芸</span>
-				</li>
-				<li>
-					<span>性别：</span>
-					<span>女</span>
-				</li>
-				<li>
-					<span>年龄：</span>
-					<span>28</span>
-				</li>
-				<li>
-					<span>工作年限：</span>
-					<span>4年</span>
-				</li>
-				<li>
-					<span>毕业学校：</span>
-					<span>天津理工大学</span>
-				</li>
-				<li>
-					<span>所学专业:</span>
-					<span>软件工程</span>
-				</li>
-				<li>
-					<span>所在城市：</span>
-					<span>北京</span>
-				</li>
-				<li>
-					<span>联系方式：</span>
-					<span>18614091602</span>
-				</li>
-				<li>
-					<span>邮箱：</span>
-					<span>liudongyun1215@sina.cn</span>
+				<li v-for="item in my_base_info">
+					<span>{{item.name}}：</span>
+					<span>{{item.cont}}</span>
 				</li>
 			</ul>
 		</div>
-
-		<navlist></navlist>
 	</div>
 </template>
 <script>
-	import navlist from '../components/navlist'
-	
 	export default {
 	  name: 'index',
 	  data(){
 	  	return{
-	  		msg:'当前是首页(即基础信息页)'
+	  		my_base_info:[
+	  			{
+	  				'name':'姓名',
+	  				'cont':'刘冬芸'
+	  			},
+	  			{
+	  				'name':'性别',
+	  				'cont':'女'
+	  			},
+	  			{
+	  				'name':'年龄',
+	  				'cont':'28'
+	  			},
+	  			{
+	  				'name':'工作年限',
+	  				'cont':'4年'
+	  			},
+	  			{
+	  				'name':'毕业学校',
+	  				'cont':'天津理工大学'
+	  			},
+	  			{
+	  				'name':'所学专业',
+	  				'cont':'软件工程'
+	  			},
+	  			{
+	  				'name':'所在城市',
+	  				'cont':'北京'
+	  			},
+	  			{
+	  				'name':'联系方式',
+	  				'cont':'18614091602'
+	  			},
+	  			{
+	  				'name':'邮箱',
+	  				'cont':'liudongyun1215@sina.cn'
+	  			},
+	  			{
+	  				'name':'性格',
+	  				'cont':'双重性格'
+	  			}
+	  		]
 	  	}
-	  },
-	  components:{
-	  	navlist
 	  }
 	}
 </script>

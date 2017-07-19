@@ -15,21 +15,15 @@
 				<span>框架(vue/angular/react)</span>
 			</li>
 		</ul>
-
-		<navlist></navlist>
 	</div>
 </template>
 <script>
-	import navlist from '../components/navlist'
 	export default {
 	  name: 'index',
 	  data(){
 	  	return{
 	  		msg:'当前是功力展示页面'
 	  	}
-	  },
-	  components:{
-	  	navlist
 	  }
 	}
 </script>
