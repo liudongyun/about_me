@@ -14,7 +14,7 @@
 		</dl>
 		<dl>
 			<dt class="yy"><img src="../assets/yy.jpg"></dt>
-			<dd>属于新进业余组种子选手,目前擅长在泳池里沉底和喝水.....>_<</dd>
+			<dd>属于新进业余组种子选手,目前擅长在泳池里沉底和喝水.....</dd>
 		</dl>
 		<dl>
 			<dt class="lx"><img src="../assets/lx.jpg"></dt>

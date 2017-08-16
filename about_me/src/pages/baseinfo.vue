@@ -3,7 +3,7 @@
 
 		<ul>
 			<li class="css_model">
-				<span>css(less/sass/css)</span>
+				<router-link :to="{path:'pro_1'}">诗和远方</router-link>
 			</li>
 			<li class="js_model">
 				<span>js(javascript/jquery/zepto)</span>
@@ -19,7 +19,7 @@
 </template>
 <script>
 	export default {
-	  name: 'index',
+	  name: 'baseinfo',
 	  data(){
 	  	return{
 	  		msg:'当前是功力展示页面'

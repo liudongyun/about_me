@@ -16,7 +16,6 @@ export default {
   name: 'navlist',
   data () {
     return {
-      active:'',
       nav_list_cont:[
         {
           'name':'初步印象',
@@ -43,7 +42,10 @@ export default {
   },
   methods:{
     nav_select:function(index){
-      console.log($('.navlist li').eq(index))
+      $('.navlist li,.navlist li a').css('color','#fff');
+      $('.navlist li').eq(index).css('color','pink');
+      $('.navlist li').eq(index).find('a').css('color','pink');
+      var thisHash=window.location.href.split('/')[window.location.href.split('/').length-1];
     }
   }
 }

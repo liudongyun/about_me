@@ -2,7 +2,7 @@
 	<div class="index">
 		<div class="top_bg">
 			<span class="user_photo">
-				<img src="../assets/user_photo.jpg">
+				<img src="../assets/user_photo.jpg" v-on:click="test">
 			</span>
 		</div>
 		<div class="index_base_info">
@@ -62,6 +62,11 @@
 	  				'cont':'双重性格'
 	  			}
 	  		]
+	  	}
+	  },
+	  methods:{
+	  	test:function(){
+	  		console.log($('.index').length);
 	  	}
 	  }
 	}
