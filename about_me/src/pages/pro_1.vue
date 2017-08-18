@@ -1,14 +1,14 @@
 <template>
 	<div class="pro_1">
-		<swiper :options="swiperOption_up" class="swiperOption_up">
+		<swiper :options="swiperOption_up" ref="swiperOption_up">
 		    <swiper-slide v-for="banner in banners">
-		    	<img :src="banner">
+		    	<img :src="banner.picname">
 		    </swiper-slide>
 		  </swiper>
 
-		  <swiper :options="swiperOption_down" class="swiperOption_down">
+		  <swiper :options="swiperOption_down" ref="swiperOption_down" class="swiperOption_down">
 		    <swiper-slide v-for="banner in banners">
-		    	<img :src="banner">
+		    	<p>{{banner.cont}}</p>
 		    </swiper-slide>
 		  </swiper>
 	</div>
@@ -25,44 +25,41 @@
 	  data(){
 	  	return{
 	  		msg:'当前是项目一页面',
-			banners: [ '../static/pic_1.jpg', '../static/pic_2.jpg','../static/pic_3.jpg'],
+			banners: [
+				{
+					picname:'../static/pic_1.jpg',
+					cont:'内容一'
+				},
+				{
+					picname:'../static/pic_2.jpg',
+					cont:'内容二'
+				},
+				{
+					picname:'../static/pic_3.jpg',
+					cont:'内容三'
+				}
+			],
 	        swiperOption_up: {
 	        	slidesPerView:1.5,
 	        	spaceBetween:38,
 	        	slidesOffsetBefore:66,
 	        	loop:true,
 	        	loopAdditionalSlides:1,
-	        	initialSlide:1,
-	        	control: ['swiperOption_down']
+	        	initialSlide:1
 	        },
 	        swiperOption_down: {
-	        	slidesPerView:1.5,
-	        	spaceBetween:38,
 	        	loop:true,
 	        	loopAdditionalSlides:1,
 	        	initialSlide:1,
-	        	control: ['swiperOption_up']
-
+	        	effect: 'fade'
 	        }
 	    }
 	  },
 	  mounted(){
-	  	this.lunbo()
-	  },
-	  methods:{
-	  	lunbo(){
-	  		console.log('test')
-	  		let swiper_up = new Swiper('.swiperOption_up',{
-
-		  	})
-		  	let swiper_down = new Swiper('.swiperOption_down',{
-		  		initialSlide :2,
-		  	})
-	  		
-		  	
-		  	swiper_up.params.control = swiper_down 
-	  	}
-	  	
+	  	const swiperOption_up = this.$refs.swiperOption_up.swiper
+      	const swiperOption_down = this.$refs.swiperOption_down.swiper
+      	swiperOption_up.params.control = swiperOption_down
+      	swiperOption_down.params.control = swiperOption_up
 	  }
 	}
 </script>
@@ -74,6 +71,10 @@
 	}
 	.swiper-container img{
 		width:100%;
+	}
+	.swiperOption_down p{
+		text-align:center;
+		border:1px solid orange;
 	}
 	
 </style>
