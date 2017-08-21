@@ -3,7 +3,7 @@
 
 		<ul>
 			<li class="css_model">
-				<router-link :to="{path:'pro_1'}">诗和远方</router-link>
+				<router-link :to="{path:'pro_1'}">vue-awesome-swiper</router-link>
 			</li>
 			<li class="js_model">
 				<span>js(javascript/jquery/zepto)</span>

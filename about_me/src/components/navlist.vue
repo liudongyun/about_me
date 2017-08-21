@@ -59,6 +59,7 @@ export default {
     bottom:0;
     width:100%;
     color:#fff;
+    z-index:8;
     ul{
       display:flex;
       justify-content:space-around;

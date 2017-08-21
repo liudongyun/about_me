@@ -4,13 +4,15 @@
 		    <swiper-slide v-for="banner in banners">
 		    	<img :src="banner.picname">
 		    </swiper-slide>
-		  </swiper>
+		</swiper>
 
-		  <swiper :options="swiperOption_down" ref="swiperOption_down" class="swiperOption_down">
+	  	<swiper :options="swiperOption_down" ref="swiperOption_down" class="swiperOption_down">
 		    <swiper-slide v-for="banner in banners">
-		    	<p>{{banner.cont}}</p>
+		    	<p>{{banner.cont[0]}}</p>
+		    	<p>{{banner.cont[1]}}</p>
 		    </swiper-slide>
-		  </swiper>
+	  	</swiper>
+
 	</div>
 </template>
 <script>     
@@ -28,33 +30,44 @@
 			banners: [
 				{
 					picname:'../static/pic_1.jpg',
-					cont:'内容一'
+					cont:['蝴蝶很美','终究蝴蝶飞不过沧海']
 				},
 				{
 					picname:'../static/pic_2.jpg',
-					cont:'内容二'
+					cont:['风华是一指流砂','苍老是一段年华']
 				},
 				{
 					picname:'../static/pic_3.jpg',
-					cont:'内容三'
+					cont:['人生若只如初见','当时只道是寻常']
 				}
 			],
 	        swiperOption_up: {
 	        	slidesPerView:1.5,
 	        	spaceBetween:38,
 	        	slidesOffsetBefore:66,
-	        	loop:true,
 	        	loopAdditionalSlides:1,
-	        	initialSlide:1
+	        	initialSlide:1,
+	        	loop:true,
+	        	height:360
 	        },
 	        swiperOption_down: {
 	        	loop:true,
+	        	effect:'fade',
 	        	loopAdditionalSlides:1,
 	        	initialSlide:1,
-	        	effect: 'fade'
-	        }
+	        	fade:{
+	        		crossFade:true
+	        	},
+	        	height:200
+	        },
+	        
 	    }
 	  },
+	  methods:{
+    	handleClick:function(){
+    		this.$toast('Hello World');
+    	}
+      },
 	  mounted(){
 	  	const swiperOption_up = this.$refs.swiperOption_up.swiper
       	const swiperOption_down = this.$refs.swiperOption_down.swiper
@@ -65,16 +78,24 @@
 </script>
 <style scoped lang="less">
 	.swiper-container{
-		height:400px;
 		width:100%;
-		margin-top:30px;
+		padding-top:30px;
+		background-color:#cee4e6;
 	}
+	.swiper-container:nth-child(2){
+		height:200px;
+	}
+	
 	.swiper-container img{
 		width:100%;
+		border:3px solid #fff;
 	}
 	.swiperOption_down p{
 		text-align:center;
-		border:1px solid orange;
+		height:30px;
+		line-height:30px;
+		font-size:16px;
+		color:#fff;
+		font-family:"微软雅黑"
 	}
-	
 </style>
