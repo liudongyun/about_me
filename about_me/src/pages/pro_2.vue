@@ -231,7 +231,7 @@
 	  				'cont':'周杰伦演唱会'
 	  			},
 	  			{
-	  				'time':'2017-6-4'.
+	  				'time':'2017-6-4',
 	  				'cont':'公司团建：山东游'
 	  			},
 	  			{
@@ -273,7 +273,10 @@
     		for(var i=0;i<this.timeThing.length;i++){
     			if(dataCompare==this.timeThing[i].time){
     				console.log('日期存在');
-    				$('.cont').html(this.timeThing[i].cont)
+    				$('.cont').html(this.timeThing[i].cont);
+    				break;
+    			}else{
+    				$('.cont').html('这一天空空如也......')
     			}
     		}
     	}
