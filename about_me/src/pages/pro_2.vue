@@ -3,8 +3,8 @@
 		<mt-button @click.native="openPicker" class="title">选择时间</mt-button>
 		<div class="thisTime">每一天</div>
 		<div class="cont">
-			<p v-if="thiscontarr.length==0">这一天空空如也......</p>	
-			<p v-if="item.time==dataCompare" v-for="item in timeThing">{{item.cont}}</p>
+			<p v-show="thiscontarr.length==0" class="showCont">{{thiscont}}</p>	
+			<p v-for="item in thiscontarr">{{item}}</p>
 		</div>
 		<mt-datetime-picker
 			ref="picker"
@@ -29,7 +29,7 @@
 	  		msg:'当前是项目二页面',
 	  		pickerValue:null,
 	  		startDate:new Date('2017-1-1'),
-	  		endDate:new Date('2017-2-28'),
+	  		endDate:new Date('2017-3-31'),
 	  		timeThing:[
 	  			{
 	  				'time':'2017-1-1',
@@ -235,7 +235,7 @@
 	  			},
 	  			{
 	  				'time':'2017-2-20',
-	  				'cont':'不是所有的悲伤;都能用文字诠释;而是所有额悲伤;都能从文字中得到安慰'
+	  				'cont':'不是所有的悲伤;都能用文字诠释;而是所有的悲伤;都能从文字中得到安慰'
 	  			},
 	  			{
 	  				'time':'2017-2-21',
@@ -272,12 +272,143 @@
 	  			{
 	  				'time':'2017-2-29',
 	  				'cont':'好好学习;安顿自己'
+	  			},
+	  			{
+	  				'time':'2017-3-1',
+	  				'cont':'某天;你无端想起一个人;她曾让你对明天有所期许;但是却完全没有出现在你的明天里'
+	  			},
+	  			{
+	  				'time':'2017-3-2',
+	  				'cont':'几年前踏上火车那一刻;都还没有意识到......;从此故乡只有冬夏;再无春秋'
+	  			},
+	  			{
+	  				'time':'2017-3-3',
+	  				'cont':'后来我终于知道;它并不是我的花;我只是恰好途径了它的盛放'
+	  			},
+	  			{
+	  				'time':'2017-3-4',
+	  				'cont':'醉后不知天在水;满船清梦压星河'
+	  			},
+	  			{
+	  				'time':'2017-3-5',
+	  				'cont':'我曾听人说过;当你不可以再拥有的时候;你唯一可以做的;就是让自己不要忘记'
+	  			},
+	  			{
+	  				'time':'2017-3-6',
+	  				'cont':'我已经原谅了从前的自己;就像谅解了一个野心勃勃的傻逼;体恤了一个笨手笨脚的勇士;释怀了一个难以启齿的秘密'
+	  			},
+	  			{
+	  				'time':'2017-3-7',
+	  				'cont':'和世界交手的这许多年;你是否光彩依旧;兴致盎然'
+	  			},
+	  			{
+	  				'time':'2017-3-8',
+	  				'cont':'愿你梦里有喝不完的酒;醒来后能酩酊大醉的过完这一生;你要照顾好你黑色的头发;挑剔的胃和爱笑的眼睛'
+	  			},
+	  			{
+	  				'time':'2017-3-8',
+	  				'cont':'我来不及认真的年轻;待明白过来时;只能选择认真的老去'
+	  			},
+	  			{
+	  				'time':'2017-3-9',
+	  				'cont':'真希望在电影里过日子;下一镜头就是一行字幕:;多年以后'
+	  			},
+	  			{
+	  				'time':'2017-3-10',
+	  				'cont':'时间再悄然流逝;年华在匆匆而过;时光无限荏苒;光阴不再重复;记忆永远成了昨天'
+	  			},
+	  			{
+	  				'time':'2017-3-11',
+	  				'cont':'我们的生活样式;就像一副油画;从近看;看不出所以然来;要欣赏它的美;就非站远一点不可'
+	  			},
+	  			{
+	  				'time':'2017-3-12',
+	  				'cont':'如果你没有如期归来;这正是离别的意义'
+	  			},
+	  			{
+	  				'time':'2017-3-13',
+	  				'cont':'你站在桥上看风景;看风景的人在楼上看你;明月装饰了你的窗子;你装饰了别人的梦'
+	  			},
+	  			{
+	  				'time':'2017-3-14',
+	  				'cont':'你;一会看我;一会看云;我觉得;你看我时很远;你看云时很近'
+	  			},
+	  			{
+	  				'time':'2017-3-15',
+	  				'cont':'我是人间惆怅客;知君何事泪纵横;断肠声里忆平生'
+	  			},
+	  			{
+	  				'time':'2017-3-16',
+	  				'cont':'鲜花怒骂少年时;一日看尽长安花'
+	  			},
+	  			{
+	  				'time':'2017-3-17',
+	  				'cont':'夜阑卧听风吹雨;铁马是你;冰河也是你'	
+	  			},
+	  			{
+	  				'time':'2017-3-18',
+	  				'cont':'最悲伤的事莫过于在痛苦中;回忆起往昔的快乐'
+	  			},
+	  			{
+	  				'time':'2017-3-19',
+	  				'cont':'红尘陌上;独自行走;绿萝拂过衣襟;青云打湿诺言;山和水可以两两相忘;日与月可以毫无瓜葛;那时候;只一个人的浮世清欢;一个人的细水长流'
+	  			},
+	  			{
+	  				'time':'2017-3-20',
+	  				'cont':'剑未佩妥;出门已是江湖;酒尚余温;入口不识乾坤;远离尽千帆;归来仍是少年'
+	  			},
+	  			{
+	  				'time':'2017-3-21',
+	  				'cont':'岁月不饶人;我亦未曾绕过岁月'
+	  			},
+	  			{
+	  				'time':'2017-3-22',
+	  				'cont':'不惋惜;不呼吸;我也不啼哭;一切将逝去;如苹果花丛的薄雾;金黄的落叶堆满心间;我已不再是青春少年'
+	  			},
+	  			{
+	  				'time':'2017-3-23',
+	  				'cont':'岁月极美;在于它必然的流逝;春花;秋月;夏日;冬雪'
+	  			},
+	  			{
+	  				'time':'2017-3-24',
+	  				'cont':'所有的悲欢都已化成灰烬;任世间哪一条路;我都不能与你同行'
+	  			},
+	  			{
+	  				'time':'2017-3-25',
+	  				'cont':'童年的一天一天;温暖而迟缓;正像老棉鞋里面;粉红绒里子上晒着的阳光'
+	  			},
+	  			{
+	  				'time':'2017-3-26',
+	  				'cont':'我去旅行;是因为我决定要去;并不是因为对风景的兴趣'
+	  			},
+	  			{
+	  				'time':'2017-3-27',
+	  				'cont':'最要紧的是;我们首先应该善良;其次要诚实;再其次是以后永远不要相互遗忘'
+	  			},
+	  			{
+	  				'time':'2017-3-28',
+	  				'cont':'追逐影子的人;自己就是影子'
+	  			},
+	  			{
+	  				'time':'2017-3-29',
+	  				'cont':'一个人有两个我;一个在黑暗中醒着;一个在光明中睡着'
+	  			},
+	  			{
+	  				'time':'2017-3-30',
+	  				'cont':'最好的人;像孩子一样;真诚;像夕阳一样;温暖;像天空一样;宁静'
+	  			},
+	  			{
+	  				'time':'2017-3-31',
+	  				'cont':'时间的绝情之处是;它让你熬到真相;却不给你任何补偿'
 	  			}
 	  		],
 	  		thiscont:'都要给自己一个坚持下去的理由或者坚持不下去的借口...... ',
 	  		thiscontarr:[],
 	  		dataCompare:''
 	    }
+	  },
+	  computed:{
+	  	
 	  },
 	  methods:{
     	openPicker(){
@@ -288,6 +419,14 @@
     		var finalData=(thisdata.getFullYear())+'年'+(thisdata.getMonth()+1)+'月'+thisdata.getDate()+'日';
     		this.dataCompare=(thisdata.getFullYear())+'-'+(thisdata.getMonth()+1)+'-'+thisdata.getDate()
     		$('.thisTime').text(finalData);//将时间展示出来
+
+    		for(let i in this.timeThing){
+	  			if(this.timeThing[i].time==this.dataCompare){
+	  				this.thiscontarr=[];
+					this.thiscontarr=this.timeThing[i].cont.split(';');
+					return this.thiscontarr;
+	  			}
+	  		}
     	}
       }
 	}
@@ -301,10 +440,29 @@
 		padding:20px;
 		line-height:20px;
 		font-family:"微软雅黑";
+		padding-bottom:30px;
+	}
+	.cont p{
+		line-height:40px;
+		font-size:14px;
+		font-family:"微软雅黑";
+		text-align:center;
 	}
 	.thisTime{
 		font-size:16px;
 		margin:20px;
+		font-weight:bold;
 		font-family:"微软雅黑";
 	}
+	.pro_2{
+		position:absolute;
+		background-color:#cee4e6;
+		height:100%; 
+		color:#fff;
+		width:100%;
+	}
+	.pro_2 .showCont{
+		text-align:left;
+	}
+
 </style>

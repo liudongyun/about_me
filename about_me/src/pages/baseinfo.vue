@@ -6,7 +6,7 @@
 				<router-link :to="{path:'pro_1'}">vue-awesome-swiper</router-link>
 			</li>
 			<li class="js_model">
-				<span>js(javascript/jquery/zepto)</span>
+				<router-link :to="{path:'pro_2'}">vue-mint-ui</router-link>
 			</li>
 			<li class="html_model">
 				<span>html(jade/html)</span>
@@ -58,6 +58,10 @@
 			background:url('../assets/fj_4.jpg') no-repeat top center;
 			background-size:100%;
 			color:#fff;
+		}
+		a{
+			color:#fff;
+			text-decoration:none;
 		}
 	}
 </style>
