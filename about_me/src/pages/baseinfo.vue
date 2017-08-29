@@ -1,12 +1,12 @@
 <template>
 	<div class="baseinfo">
-
+		<router-view></router-view>
 		<ul>
 			<li class="css_model">
-				<router-link :to="{path:'pro_1'}">vue-awesome-swiper</router-link>
+				<router-link to="pro_1">vue-awesome-swiper</router-link>
 			</li>
 			<li class="js_model">
-				<router-link :to="{path:'pro_2'}">vue-mint-ui</router-link>
+				<router-link to="pro_2">vue-mint-ui</router-link>
 			</li>
 			<li class="html_model">
 				<span>html(jade/html)</span>
@@ -15,6 +15,7 @@
 				<span>框架(vue/angular/react)</span>
 			</li>
 		</ul>
+		
 	</div>
 </template>
 <script>

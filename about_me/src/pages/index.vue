@@ -5,14 +5,21 @@
 				<img src="../assets/user_photo.jpg" v-on:click="test">
 			</span>
 		</div>
+
+		{{ totalPrice }}
+		<button>增加</button>
+		<button>减少</button>
+		
 		<div class="index_base_info">
 			<ul>
 				<li v-for="item in my_base_info">
-					<span>{{item.name}}：</span>
+					<span>{{item.name}}</span>
 					<span>{{item.cont}}</span>
 				</li>
+
 			</ul>
 		</div>
+		
 	</div>
 </template>
 <script>
@@ -67,6 +74,17 @@
 	  methods:{
 	  	test:function(){
 	  		console.log($('.index').length);
+	  	},
+	  	addOne(){
+	  		this.$store.dispatch('increase',this.price)
+	  	},
+	  	minusOne(){
+	  		this.$store.commit('decrement',this.price)
+	  	}
+	  },
+	  computed:{
+	  	totalPrice(){
+	  		return this.$store.state.totalPrice
 	  	}
 	  }
 	}

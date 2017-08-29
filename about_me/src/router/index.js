@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import $ from 'n-zepto';
+
 import index from '@/pages/index'
 import baseinfo from '@/pages/baseinfo'
 import load from '@/pages/load'

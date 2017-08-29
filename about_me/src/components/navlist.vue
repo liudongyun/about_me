@@ -18,22 +18,22 @@ export default {
     return {
       nav_list_cont:[
         {
-          'name':'初步印象',
+          'name':'印象',
           'icon':'fa-heart-o',
           'to':'index'
         },
         {
-          'name':'功力展示',
+          'name':'练习',
           'icon':'fa-pencil-square-o',
           'to':'baseinfo'
         },
         {
-          'name':'心酸历程',
+          'name':'经历',
           'icon':'fa-paw',
           'to':'load'
         },
         {
-          'name':'兴趣爱好',
+          'name':'爱好',
           'icon':'fa-meh-o',
           'to':'interesting'
         }
