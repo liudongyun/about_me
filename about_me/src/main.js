@@ -7,7 +7,7 @@ import Vuex from 'vuex'
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
-const store = new Vuex.Store({
+let store = new Vuex.Store({
   state:{
     totalPrice:0
   },
@@ -17,12 +17,15 @@ const store = new Vuex.Store({
     },
     decrement(state,price){
       state.totalPrice -= price;
-    },
-    actions:{
-    	increase(context){
-    		context.commit('increment',price)
-    	}
     }
+  },
+  actions:{
+	increase(context,price){
+		context.commit('increment',5)
+	},
+	decrement(context,price){
+		context.commit('decrement',5)
+	}
   }
 })
 /* eslint-disable no-new */

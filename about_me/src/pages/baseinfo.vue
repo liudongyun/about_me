@@ -15,7 +15,6 @@
 				<span>框架(vue/angular/react)</span>
 			</li>
 		</ul>
-		
 	</div>
 </template>
 <script>

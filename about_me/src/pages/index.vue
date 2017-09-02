@@ -7,8 +7,8 @@
 		</div>
 
 		{{ totalPrice }}
-		<button>增加</button>
-		<button>减少</button>
+		<button v-on:click="addOne">增加</button>
+		<button v-on:click="minusOne">减少</button>
 		
 		<div class="index_base_info">
 			<ul>
@@ -16,7 +16,6 @@
 					<span>{{item.name}}</span>
 					<span>{{item.cont}}</span>
 				</li>
-
 			</ul>
 		</div>
 		
@@ -79,7 +78,7 @@
 	  		this.$store.dispatch('increase',this.price)
 	  	},
 	  	minusOne(){
-	  		this.$store.commit('decrement',this.price)
+	  		this.$store.dispatch('decrement',this.price)
 	  	}
 	  },
 	  computed:{
