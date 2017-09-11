@@ -7,6 +7,7 @@ import load from '@/pages/load'
 import interesting from '@/pages/interesting'
 import pro_1 from '@/pages/pro_1'
 import pro_2 from '@/pages/pro_2'
+import pro_3 from '@/pages/pro_3'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import Mint from 'mint-ui'
 
@@ -51,6 +52,11 @@ export default new Router({
       path:'/pro_2',
       name:'pro_2',
       component:pro_2
+    },
+    {
+      path:'/pro_3',
+      name:'pro_3',
+      component:pro_3
     }
   ]
 })

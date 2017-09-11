@@ -9,7 +9,7 @@
 				<router-link to="pro_2">vue-mint-ui</router-link>
 			</li>
 			<li class="html_model">
-				<span>html(jade/html)</span>
+				<router-link to="pro_3">sign-up</router-link>
 			</li>
 			<li class="kj_model">
 				<span>框架(vue/angular/react)</span>

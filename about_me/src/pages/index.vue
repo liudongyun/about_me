@@ -6,9 +6,9 @@
 			</span>
 		</div>
 
-		{{ totalPrice }}
+		<!-- {{ totalPrice }}
 		<button v-on:click="addOne">增加</button>
-		<button v-on:click="minusOne">减少</button>
+		<button v-on:click="minusOne">减少</button> -->
 		
 		<div class="index_base_info">
 			<ul>
