@@ -3,26 +3,30 @@
 		<canvas id="main_box" width="360" height="600"></canvas>
 		<h3>Sign Up</h3>
 		<div class="main_box" >
-			<span class="user_photo"><img src="../assets/sign_up_user_photo.jpg"></span>
+			<span class="user_photo">
+				<img :src="this.images">
+				<input type="file" @change="onFileChange" multiple name="">
+			</span>
 			<ul>
 				<li class="name">
-					<span>姓名</span>
-					<input type="text" name="name">
+					<span>用户名</span>
+					<input type="text" name="name" v-model="username"> 
 				</li>
 				<li class="email">
 					<span>邮箱</span>
-					<input type="text" name="email">
+					<input type="text" name="email" v-model="email">
 				</li>
 				<li class="password">
-					<span>输入密码</span>
-					<input type="text" name="password">
+					<span>密码</span>
+					<input type="text" name="password" v-model="password">
 				</li>
 				<li class="password_again">
-					<span>再次输入</span>
-					<input type="text" name="password_again">
+					<span>密码确认</span>
+					<input type="text" name="password_again" v-model="password_again">
 				</li>
 			</ul>
-			<input type="button" name="" value="完成" class="finish_btn">
+			<input type="button" name="" value="完成" class="finish_btn" @click="loginMethods">
+			<p class="toast" v-show="this.toast_info!=''">{{this.toast_info}}</p>
 		</div>
 	</div>
 </template>
@@ -30,16 +34,71 @@
 	export default {
 	  name: 'pro_3',
 	  components: {
+
 	  },
 	  data(){
 	  	return{
-	  		msg:'当前是项目三页面'
+	  		msg:'当前是项目三页面',
+	  		images: require("../assets/sign_up_user_photo.jpg"),
+	  		toast_info:"",
+	  		username:"",
+	  		email:"",
+	  		password:"",
+	  		password_again:""
 	    }
+	  },
+	  methods:{
+	  	onFileChange(e) {
+            var files = e.target.files || e.dataTransfer.files;
+            if (!files.length)return; 
+            this.createImage(files);
+        },
+        createImage(file) {
+            if(typeof FileReader==='undefined'){
+                alert('您的浏览器不支持图片上传，请升级您的浏览器');
+                return false;
+            }
+            var image = new Image();         
+            var vm = this;
+            var leng=file.length;
+            for(var i=0;i<leng;i++){
+                var reader = new FileReader();
+                reader.readAsDataURL(file[i]); 
+                reader.onload =function(e){
+                	vm.images=[];
+                	vm.images.push(e.target.result); 
+                	console.log(vm.images);                           
+                };                 
+            }                        
+        },
+        username_fn:function(val){
+        	return /^[A-Za-z0-9_\-\u4e00-\u9fa5]{1,10}$/.test(val);
+        },
+        password_fn:function(val){
+        	//纯数字，纯字母，纯特殊数字
+        	return /^(?:\d+|[a-zA-Z]+|[!@#$%^&*]+)$/.test(val);
+        },
+        email_fn:function(val){
+        	return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(val);
+        },
+        loginMethods:function(){
+        	if(!this.username_fn(this.username)){
+        		this.toast_info="用户名必须由数字、26个英文字母或下划线和中文组成的字符串";
+        	}else if(!this.email_fn(this.email)){
+        		this.toast_info="请输入正确的邮箱";
+        	}else if(!this.password_fn(this.password)){
+        		this.toast_info="密码可以是纯数字，纯字母，纯特殊字符";
+        	}else if(this.password_again!=this.password){
+        		this.toast_info="两次输入的密码不一致";
+        	}else{
+        		this.toast_info="以为真的能注册呢？逗你玩儿~"
+        	}
+        }
 	  },
       mounted(){
       	let canvas=document.getElementById('main_box');
 		let ctx=canvas.getContext('2d');
-		ctx.fillStyle="#fff"
+		ctx.fillStyle="#fff";
 		ctx.beginPath();
 		// ctx.strokeStyle="red";
 		ctx.moveTo(0,160);
@@ -49,7 +108,6 @@
 		ctx.closePath();
 		// ctx.stroke();
 		ctx.fill();
-
       } 
 	}
 </script>
@@ -78,10 +136,19 @@
 		height:4rem;
 		margin-left:-2rem;
 		border-radius:50%;
-		border:2px solid #fff;
+		border:2px solid #ccc;
 		overflow:hidden;
 		img{
-			height: 100%;
+			width: 100%;
+			display:block;
+			height:100%;
+		}
+		input{
+			display:block;
+			height:100%;
+			opacity:0;
+			position:absolute;
+			top:0;
 		}
 	}
 	.main_box{
@@ -129,5 +196,21 @@
 	#main_box{
 		position:relative;
 		z-index:8
+	}
+	.toast{
+		width:80%;
+		border-radius:0.5rem;
+		background-color:#353333;
+		position:fixed;
+		left:50%;
+		top:20%;
+		margin-left:-45%;
+		z-index: 6;
+		color:#fff;
+		padding:5%;
+		line-height:1rem;
+		font-size:0.9rem;
+		opacity:0.8;
+		text-align:center;
 	}
 </style>

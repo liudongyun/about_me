@@ -75,15 +75,15 @@
 	  		console.log($('.index').length);
 	  	},
 	  	addOne(){
-	  		this.$store.dispatch('increase',this.price)
+	  		this.$store.dispatch('increase',this.price);
 	  	},
 	  	minusOne(){
-	  		this.$store.dispatch('decrement',this.price)
+	  		this.$store.dispatch('decrement',this.price);
 	  	}
 	  },
 	  computed:{
 	  	totalPrice(){
-	  		return this.$store.state.totalPrice
+	  		return this.$store.state.totalPrice;
 	  	}
 	  }
 	}
@@ -108,7 +108,7 @@
 			overflow:hidden;
 			img{
 				width:100%;
-				margin-top:-0.5rem
+				margin-top:-0.5rem;
 			}
 		}
 	}
