@@ -10,7 +10,7 @@
 			<ul>
 				<li class="name">
 					<span>用户名</span>
-					<input type="text" name="name" v-model="username"> 
+					<input type="text" name="name" v-model="username" > 
 				</li>
 				<li class="email">
 					<span>邮箱</span>
@@ -26,7 +26,7 @@
 				</li>
 			</ul>
 			<input type="button" name="" value="完成" class="finish_btn" @click="loginMethods">
-			<p class="toast" v-show="this.toast_info!=''">{{this.toast_info}}</p>
+			<p class="toast" v-if="this.ishide">{{this.toast_info}}</p>
 		</div>
 	</div>
 </template>
@@ -44,7 +44,8 @@
 	  		username:"",
 	  		email:"",
 	  		password:"",
-	  		password_again:""
+	  		password_again:"",
+	  		ishide:false
 	    }
 	  },
 	  methods:{
@@ -84,16 +85,33 @@
         loginMethods:function(){
         	if(!this.username_fn(this.username)){
         		this.toast_info="用户名必须由数字、26个英文字母或下划线和中文组成的字符串";
+        		this.ishide=true;
         	}else if(!this.email_fn(this.email)){
         		this.toast_info="请输入正确的邮箱";
+        		this.ishide=true;
         	}else if(!this.password_fn(this.password)){
         		this.toast_info="密码可以是纯数字，纯字母，纯特殊字符";
+        		this.ishide=true;
         	}else if(this.password_again!=this.password){
         		this.toast_info="两次输入的密码不一致";
+        		this.ishide=true;
         	}else{
-        		this.toast_info="以为真的能注册呢？逗你玩儿~"
+        		this.toast_info="以为真的能注册呢？逗你玩儿~";
+        		this.ishide=true;
         	}
         }
+	  },
+	  watch:{
+	  	
+	  },
+	  updated(){
+	  	if(this.ishide){
+	  		setTimeout(function(){
+				this.ishide=false;
+				console.log(this.ishide)
+				$('.toast').hide();
+	  		},2000)
+	  	}
 	  },
       mounted(){
       	let canvas=document.getElementById('main_box');
@@ -108,6 +126,7 @@
 		ctx.closePath();
 		// ctx.stroke();
 		ctx.fill();
+
       } 
 	}
 </script>
