@@ -11,9 +11,6 @@
 			<li class="html_model">
 				<router-link to="pro_3">canvas/upload/vue</router-link>
 			</li>
-			<li class="kj_model">
-				<router-link to="pro_4">LBS</router-link>
-			</li>
 		</ul>
 	</div>
 </template>

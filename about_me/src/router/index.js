@@ -11,11 +11,12 @@ import pro_3 from '@/pages/pro_3'
 import pro_4 from '@/pages/pro_4'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import Mint from 'mint-ui'
+import VueResource from 'vue-resource'
 
 Vue.use(Router)
+Vue.use(VueResource)
 Vue.use(VueAwesomeSwiper)
 Vue.use(Mint)
-
 export default new Router({
   mode:'history',
   routes: [
